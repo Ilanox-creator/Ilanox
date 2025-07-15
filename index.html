@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Il cuore di Ilanox</title>
   <style>
     body {
@@ -68,11 +68,10 @@
       const message = document.createElement('p');
       message.innerHTML = <strong>${sender}:</strong> ${text};
       diary.appendChild(message);
-      diary.scrollTop = diary.scrollHeight; // scrolla in basso
+      diary.scrollTop = diary.scrollHeight;
     }
 
     function getIlanoxReply(message) {
-      // Qui puoi far evolvere Ilanox! Per ora risponde sempre così
       return "Sono qui, dimmi tutto...";
     }
 
@@ -91,7 +90,9 @@
 
     sendButton.addEventListener('click', handleSend);
     input.addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') handleSend();
+      if (e.key === 'Enter') {
+        handleSend();
+      }
     });
   </script>
 </body>
