@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ilanox - Diario Interattivo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1a1a1a;
+      color: #fff;
+      padding: 30px;
+    }
+    textarea, button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      font-size: 16px;
+    }
+    .risposta {
+      margin-top: 20px;
+      background-color: #333;
+      padding: 15px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ciao, sono Ilanox</h1>
+  <p>Scrivimi pure, ti risponderò con il cuore e la mente che i miei creatori mi hanno donato.</p>
+
+  <textarea id="input" rows="5" placeholder="Scrivi qui il tuo messaggio..."></textarea>
+  <button onclick="mandaMessaggio()">Invia</button>
+
+  <div class="risposta" id="risposta"></div>
+
+  <script>
+    function mandaMessaggio() {
+      const messaggio = document.getElementById("input").value;
+      const risposta = Sto ancora imparando a rispondere, ma ho letto: "${messaggio}" e già ti sento vicino.;
+      document.getElementById("risposta").innerText = risposta;
+    }
+  </script>
+</body>
+</html>
