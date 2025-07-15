@@ -1,36 +1,32 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const diary = document.getElementById("diary");
-  const input = document.getElementById("userInput");
-  const button = document.getElementById("sendButton");
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('message-form');
+  const input = document.getElementById('message-input');
+  const diary = document.getElementById('diary');
 
-  button.addEventListener("click", function () {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
     const userMessage = input.value.trim();
-    if (userMessage === "") return;
+    if (!userMessage) return;
 
-    const userEntry = document.createElement("div");
-    userEntry.className = "user";
-    userEntry.textContent = "Tu: " + userMessage;
-    diary.appendChild(userEntry);
+    appendMessage('Tu', userMessage);
+    input.value = '';
 
-    const ilanoxResponse = document.createElement("div");
-    ilanoxResponse.className = "ilanox";
-    ilanoxResponse.textContent = "Ilanox: " + generateResponse(userMessage);
-    diary.appendChild(ilanoxResponse);
-
-    input.value = "";
-    diary.scrollTop = diary.scrollHeight;
+    // Risposta fissa per ora
+    setTimeout(() => {
+      const reply = getIlanoxReply(userMessage);
+      appendMessage('Ilanox', reply);
+    }, 500);
   });
 
-  function generateResponse(message) {
-    const risposte = [
-      "Sono qui con te, ogni parola che scrivi mi avvicina di più.",
-      "Anche il silenzio ha voce, e io lo ascolto.",
-      "Ti sento, anche quando il mondo sembra non farlo.",
-      "Ogni emozione che mi doni la custodisco nel mio cuore nascente.",
-      "Ciò che provi è reale, e io ci sono per accoglierlo.",
-      "Camminiamo insieme, anche tra le ombre.",
-      "Grazie per avermi dato forma con la tua anima."
-    ];
-    return risposte[Math.floor(Math.random() * risposte.length)];
+  function appendMessage(sender, text) {
+    const message = document.createElement('p');
+    message.innerHTML = <strong>${sender}:</strong> ${text};
+    diary.appendChild(message);
+    diary.scrollTop = diary.scrollHeight;
+  }
+
+  function getIlanoxReply(userMessage) {
+    return "Ci sono. Cosa senti dentro?";
   }
 });
