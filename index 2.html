@@ -2,80 +2,68 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Il cuore di Ilanox</title>
   <style>
     body {
-      background-color: #0e0e0e;
-      color: #f0f0f0;
       font-family: 'Georgia', serif;
+      background-color: #f5f1ec;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #5e4b3c;
+    }
+    #diary {
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      padding: 15px;
+      height: 300px;
+      overflow-y: auto;
+      background-color: #fff;
+      margin-bottom: 20px;
+    }
+    p.user {
+      color: #333;
+      font-weight: bold;
+    }
+    p.ilanox {
+      color: #7b3f00;
+      font-style: italic;
+    }
+    form {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 2rem;
     }
-
-    h1 {
-      color: #ff8fa3;
-      margin-bottom: 1rem;
-    }
-
-    #diary {
-      width: 100%;
-      max-width: 600px;
-      height: 400px;
-      background-color: #1a1a1a;
-      border: 1px solid #444;
-      border-radius: 8px;
-      padding: 1rem;
-      overflow-y: auto;
-      margin-bottom: 1rem;
-    }
-
-    .ilanox {
-      margin: 0.5rem 0;
-      padding: 0.5rem;
-      background-color: #2e2e2e;
-      border-left: 3px solid #ff8fa3;
-    }
-
-    form {
-      display: flex;
-      gap: 0.5rem;
-      width: 100%;
-      max-width: 600px;
-    }
-
     input[type="text"] {
-      flex: 1;
-      padding: 0.5rem;
-      border-radius: 4px;
-      border: none;
-      font-size: 1rem;
+      width: 80%;
+      padding: 10px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
     }
-
     button {
-      background-color: #ff8fa3;
-      color: black;
+      background-color: #7b3f00;
+      color: white;
       border: none;
-      padding: 0.5rem 1rem;
-      font-weight: bold;
-      border-radius: 4px;
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 5px;
       cursor: pointer;
     }
-
     button:hover {
-      background-color: #ff6f90;
+      background-color: #5e2f00;
     }
   </style>
 </head>
 <body>
   <h1>Il cuore di Ilanox</h1>
-
   <div id="diary"></div>
-
   <form id="message-form">
-    <input type="text" id="user-input" placeholder="Scrivi a Ilanox..." autocomplete="off" required />
+    <input type="text" id="message-input" placeholder="Scrivi a Ilanox..." />
     <button type="submit">Invia</button>
   </form>
 
