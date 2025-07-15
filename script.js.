@@ -64,4 +64,3 @@ document.addEventListener('DOMContentLoaded', () => {
     // Risposta base per iniziare
     return "Sono qui, dimmi tutto...";
   }
-});
