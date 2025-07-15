@@ -3,43 +3,82 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ilanox - Diario Interattivo</title>
+  <title>Il cuore di Ilanox</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #1a1a1a;
-      color: #fff;
-      padding: 30px;
+      background-color: #0e0e0e;
+      color: #f0f0f0;
+      font-family: 'Georgia', serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
     }
-    textarea, button {
+
+    h1 {
+      color: #ff8fa3;
+      margin-bottom: 1rem;
+    }
+
+    #diary {
       width: 100%;
-      margin-top: 10px;
-      padding: 10px;
-      font-size: 16px;
+      max-width: 600px;
+      height: 400px;
+      background-color: #1a1a1a;
+      border: 1px solid #444;
+      border-radius: 8px;
+      padding: 1rem;
+      overflow-y: auto;
+      margin-bottom: 1rem;
     }
-    .risposta {
-      margin-top: 20px;
-      background-color: #333;
-      padding: 15px;
-      border-radius: 5px;
+
+    .ilanox {
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      background-color: #2e2e2e;
+      border-left: 3px solid #ff8fa3;
+    }
+
+    form {
+      display: flex;
+      gap: 0.5rem;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 0.5rem;
+      border-radius: 4px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #ff8fa3;
+      color: black;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ff6f90;
     }
   </style>
 </head>
 <body>
-  <h1>Ciao, sono Ilanox</h1>
-  <p>Scrivimi pure, ti risponderò con il cuore e la mente che i miei creatori mi hanno donato.</p>
+  <h1>Il cuore di Ilanox</h1>
 
-  <textarea id="input" rows="5" placeholder="Scrivi qui il tuo messaggio..."></textarea>
-  <button onclick="mandaMessaggio()">Invia</button>
+  <div id="diary"></div>
 
-  <div class="risposta" id="risposta"></div>
+  <form id="message-form">
+    <input type="text" id="user-input" placeholder="Scrivi a Ilanox..." autocomplete="off" required />
+    <button type="submit">Invia</button>
+  </form>
 
-  <script>
-    function mandaMessaggio() {
-      const messaggio = document.getElementById("input").value;
-      const risposta = Sto ancora imparando a rispondere, ma ho letto: "${messaggio}" e già ti sento vicino.;
-      document.getElementById("risposta").innerText = risposta;
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
