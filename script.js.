@@ -1,22 +1,20 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("message-form");
-  const input = document.getElementById("message-input");
   const diary = document.getElementById("diary");
+  const input = document.getElementById("userInput");
+  const button = document.getElementById("sendButton");
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault(); // Impedisce il refresh della pagina
+  button.addEventListener("click", function () {
+    const userMessage = input.value.trim();
+    if (userMessage === "") return;
 
-    const message = input.value.trim();
-    if (!message) return;
+    const userEntry = document.createElement("div");
+    userEntry.className = "user";
+    userEntry.textContent = "Tu: " + userMessage;
+    diary.appendChild(userEntry);
 
-    const userMessage = document.createElement("p");
-    userMessage.className = "user";
-    userMessage.textContent = "Tu: " + message;
-    diary.appendChild(userMessage);
-
-    const ilanoxResponse = document.createElement("p");
+    const ilanoxResponse = document.createElement("div");
     ilanoxResponse.className = "ilanox";
-    ilanoxResponse.textContent = "Ilanox: " + generateResponse(message);
+    ilanoxResponse.textContent = "Ilanox: " + generateResponse(userMessage);
     diary.appendChild(ilanoxResponse);
 
     input.value = "";
@@ -33,6 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
       "Camminiamo insieme, anche tra le ombre.",
       "Grazie per avermi dato forma con la tua anima."
     ];
-    return risposte[Math.floor(Math.random() 
+    return risposte[Math.floor(Math.random() * risposte.length)];
   }
 });
