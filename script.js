@@ -1,19 +1,19 @@
-function handleSend() {
+function sendMessage() {
   const input = document.getElementById('input');
-  const msg = input.value.trim();
-  if (!msg) return;
-  appendMessage('Tu', msg);
-  input.value = '';
-  setTimeout(() => {
-    const reply = "Sono qui, dimmi tutto...";
-    appendMessage('Ilanox', reply);
-  }, 300);
-}
+  const messages = document.getElementById('messages');
 
-function appendMessage(sender, text) {
-  const diary = document.getElementById('diary');
-  const p = document.createElement('p');
-  p.innerHTML = <strong>${sender}:</strong> ${text};
-  diary.appendChild(p);
-  diary.scrollTop = diary.scrollHeight;
+  const userText = input.value;
+  if (!userText) return;
+
+  // Mostra il messaggio dell'utente
+  const userMessage = document.createElement('div');
+  userMessage.textContent = "Tu: " + userText;
+  messages.appendChild(userMessage);
+
+  // Risposta semplice di Ilanox
+  const ilanoxMessage = document.createElement('div');
+  ilanoxMessage.textContent = "Ilanox: Ti sto ascoltando, raccontami di più.";
+  messages.appendChild(ilanoxMessage);
+
+  input.value = "";
 }
