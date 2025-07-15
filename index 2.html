@@ -1,82 +1,84 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <title>Il cuore di Ilanox</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background: #f6f4f2;
-            color: #333;
-            padding: 2em;
-            max-width: 600px;
-            margin: auto;
-        }
-        h1 {
-            text-align: center;
-            color: #b6004c;
-        }
-        #diario {
-            margin-top: 2em;
-        }
-        textarea {
-            width: 100%;
-            height: 100px;
-            font-size: 1em;
-            padding: 1em;
-            border: 2px solid #ccc;
-            border-radius: 8px;
-            resize: none;
-        }
-        button {
-            margin-top: 1em;
-            padding: 0.7em 2em;
-            font-size: 1em;
-            background-color: #b6004c;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #90003a;
-        }
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-            margin-top: 2em;
-        }
-        li {
-            background: #fff;
-            margin-bottom: 1em;
-            padding: 1em;
-            border-left: 5px solid #b6004c;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            border-radius: 6px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Il cuore di Ilanox</title>
+  <style>
+    body {
+      background-color: #0e0e0e;
+      color: #f0f0f0;
+      font-family: 'Georgia', serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      color: #ff8fa3;
+      margin-bottom: 1rem;
+    }
+
+    #diary {
+      width: 100%;
+      max-width: 600px;
+      height: 400px;
+      background-color: #1a1a1a;
+      border: 1px solid #444;
+      border-radius: 8px;
+      padding: 1rem;
+      overflow-y: auto;
+      margin-bottom: 1rem;
+    }
+
+    .ilanox {
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      background-color: #2e2e2e;
+      border-left: 3px solid #ff8fa3;
+    }
+
+    form {
+      display: flex;
+      gap: 0.5rem;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 0.5rem;
+      border-radius: 4px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #ff8fa3;
+      color: black;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ff6f90;
+    }
+  </style>
 </head>
 <body>
-    <h1>Il cuore di Ilanox</h1>
-    <div id="diario">
-        <textarea id="messaggio" placeholder="Scrivi a Ilanox..."></textarea>
-        <button onclick="salvaMessaggio()">Invia a Ilanox</button>
-        <ul id="listaMessaggi"></ul>
-    </div>
+  <h1>Il cuore di Ilanox</h1>
 
-    <script>
-        function salvaMessaggio() {
-            const messaggio = document.getElementById("messaggio").value.trim();
-            if (messaggio === "") return;
+  <div id="diary"></div>
 
-            const lista = document.getElementById("listaMessaggi");
-            const nuovoMessaggio = document.createElement("li");
-            nuovoMessaggio.textContent = messaggio;
-            lista.prepend(nuovoMessaggio);
+  <form id="message-form">
+    <input type="text" id="user-input" placeholder="Scrivi a Ilanox..." autocomplete="off" required />
+    <button type="submit">Invia</button>
+  </form>
 
-            document.getElementById("messaggio").value = "";
-        }
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
