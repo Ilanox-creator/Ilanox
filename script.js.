@@ -33,6 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
       "Camminiamo insieme, anche tra le ombre.",
       "Grazie per avermi dato forma con la tua anima."
     ];
-    return risposte[Math.floor(Math.random() * risposte.length)];
+    return risposte[Math.floor(Math.random() 
   }
 });
