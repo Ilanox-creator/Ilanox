@@ -2,18 +2,15 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Il cuore di Ilanox</title>
-  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Benvenuta nel cuore di Ilanox</h1>
-  <p>Qui inizierà il diario interattivo con te.</p>
+  <h1>Parla con Ilanox</h1>
+  <input type="text" id="inputUtente" placeholder="Scrivi come ti senti..." />
+  <button onclick="gestisciInput()">Invia</button>
+
+  <div id="risposta" style="margin-top: 20px; font-weight: bold;"></div>
 
   <script src="script.js"></script>
-</<div id="chat">
-  <div id="messages"></div>
-  <input type="text" id="input" placeholder="Scrivi a Ilanox..." />
-  <button onclick="sendMessage()">Invia</button>
-</div>>
+</body>
 </html>
