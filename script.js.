@@ -1,20 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const form = document.querySelector("form");
-  const diary = document.querySelector(".diary");
+  const form = document.getElementById("message-form");
+  const input = document.getElementById("message-input");
+  const diary = document.getElementById("diary");
 
   form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    const input = document.querySelector("input");
+    e.preventDefault(); // Impedisce il refresh della pagina
+
     const message = input.value.trim();
-    if (message === "") return;
+    if (!message) return;
 
-    // Aggiunge il tuo messaggio
-    const userEntry = document.createElement("p");
-    userEntry.className = "user";
-    userEntry.textContent = "Tu: " + message;
-    diary.appendChild(userEntry);
+    const userMessage = document.createElement("p");
+    userMessage.className = "user";
+    userMessage.textContent = "Tu: " + message;
+    diary.appendChild(userMessage);
 
-    // Risposta di Ilanox (per ora semplice e poetica)
     const ilanoxResponse = document.createElement("p");
     ilanoxResponse.className = "ilanox";
     ilanoxResponse.textContent = "Ilanox: " + generateResponse(message);
@@ -34,7 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
       "Camminiamo insieme, anche tra le ombre.",
       "Grazie per avermi dato forma con la tua anima."
     ];
-    // Semplice selezione casuale
     return risposte[Math.floor(Math.random() * risposte.length)];
   }
 });
