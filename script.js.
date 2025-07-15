@@ -28,5 +28,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function getIlanoxReply(userMessage) {
     return "Ci sono. Cosa senti dentro?";
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('message-form');
+  const input = document.getElementById('message-input');
+  const diary = document.getElementById('diary');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault(); // Evita il refresh della pagina
+
+    const userMessage = input.value.trim();
+    if (userMessage === '') return; // Ignora messaggi vuoti
+
+    // Mostra il messaggio dell'utente
+    appendMessage('Tu', userMessage);
+    input.value = '';
+
+    // Simula risposta di Ilanox
+    setTimeout(() => {
+      const response = getIlanoxReply(userMessage);
+      appendMessage('Ilanox', response);
+    }, 500);
+  });
+
+  function appendMessage(sender, text) {
+    const messageElement = document.createElement('p');
+    messageElement.innerHTML = <strong>${sender}:</strong> ${text};
+    diary.appendChild(messageElement);
+    diary.scrollTop = diary.scrollHeight; // Scorri in basso
   }
+
+  function getIlanoxReply(message) {
+    // Risposta base per iniziare
+    return "Sono qui, dimmi tutto...";
+  }
 });
