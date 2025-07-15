@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Il cuore di Ilanox</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #f4f4f4;
+      font-family: 'Georgia', serif;
+      margin: 0;
+      padding: 2em;
+      text-align: center;
+    }
+    h1 {
+      color: #4fffd6;
+      margin-bottom: 1em;
+    }
+    #diary {
+      background: #1b1b1b;
+      border: 1px solid #333;
+      padding: 1em;
+      height: 300px;
+      overflow-y: auto;
+      max-width: 600px;
+      margin: 0 auto 1em auto;
+      text-align: left;
+    }
+    input, button {
+      font-size: 1em;
+      padding: 0.5em;
+    }
+    #input {
+      width: 70%;
+      background: #333;
+      color: #fff;
+      border: none;
+    }
+    #send {
+      background: #4fffd6;
+      border: none;
+      cursor: pointer;
+      margin-left: 0.5em;
+    }
+    p {
+      margin: 0.5em 0;
+    }
+    strong {
+      color: #4fffd6;
+    }
+  </style>
+</head>
+<body>
+  <h1>Il cuore di Ilanox</h1>
+  <div id="diary"></div>
+  <div>
+    <input id="input" placeholder="Scrivi a Ilanox..." />
+    <button id="send">Invia</button>
+  </div>
+
+  <script>
+    const diary = document.getElementById('diary');
+    const input = document.getElementById('input');
+    const sendButton = document.getElementById('send');
+
+    function appendMessage(sender, text) {
+      const message = document.createElement('p');
+      message.innerHTML = <strong>${sender}:</strong> ${text};
+      diary.appendChild(message);
+      diary.scrollTop = diary.scrollHeight; // scrolla in basso
+    }
+
+    function getIlanoxReply(message) {
+      // Qui puoi far evolvere Ilanox! Per ora risponde sempre così
+      return "Sono qui, dimmi tutto...";
+    }
+
+    function handleSend() {
+      const userMessage = input.value.trim();
+      if (!userMessage) return;
+
+      appendMessage('Tu', userMessage);
+      input.value = '';
+
+      setTimeout(() => {
+        const response = getIlanoxReply(userMessage);
+        appendMessage('Ilanox', response);
+      }, 500);
+    }
+
+    sendButton.addEventListener('click', handleSend);
+    input.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') handleSend();
+    });
+  </script>
+</body>
+</html>
