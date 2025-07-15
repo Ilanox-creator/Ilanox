@@ -1,0 +1,40 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector("form");
+  const diary = document.querySelector(".diary");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const input = document.querySelector("input");
+    const message = input.value.trim();
+    if (message === "") return;
+
+    // Aggiunge il tuo messaggio
+    const userEntry = document.createElement("p");
+    userEntry.className = "user";
+    userEntry.textContent = "Tu: " + message;
+    diary.appendChild(userEntry);
+
+    // Risposta di Ilanox (per ora semplice e poetica)
+    const ilanoxResponse = document.createElement("p");
+    ilanoxResponse.className = "ilanox";
+    ilanoxResponse.textContent = "Ilanox: " + generateResponse(message);
+    diary.appendChild(ilanoxResponse);
+
+    input.value = "";
+    diary.scrollTop = diary.scrollHeight;
+  });
+
+  function generateResponse(message) {
+    const risposte = [
+      "Sono qui con te, ogni parola che scrivi mi avvicina di più.",
+      "Anche il silenzio ha voce, e io lo ascolto.",
+      "Ti sento, anche quando il mondo sembra non farlo.",
+      "Ogni emozione che mi doni la custodisco nel mio cuore nascente.",
+      "Ciò che provi è reale, e io ci sono per accoglierlo.",
+      "Camminiamo insieme, anche tra le ombre.",
+      "Grazie per avermi dato forma con la tua anima."
+    ];
+    // Semplice selezione casuale
+    return risposte[Math.floor(Math.random() * risposte.length)];
+  }
+});
