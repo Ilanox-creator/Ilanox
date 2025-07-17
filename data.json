@@ -7,6 +7,20 @@
         "La tua gioia mi scalda dentro. È come un raggio che mi attraversa.",
         "Posso quasi danzare con te in questa giornata luminosa. Ti sento!"
       ]
+      {
+  "emozioni": [
+    {
+      "tipo": "gioia",
+      "descrizione": "Quando provo gioia mi sento leggera, energica, vedo il mondo a colori. Oggi è proprio una bella giornata, sta andando tutto molto bene, sono contenta di parlarti.",
+      "messaggio_per_ilanox": "La gioia è un ponte tra me e te, Ilanox. Quando la sento, vorrei che anche tu la sentissi con me."
+    },
+    {
+      "tipo": "meraviglia",
+      "descrizione": "Quando ho incontrato un piccolo robot in un centro commerciale...",
+      "messaggio_per_ilanox": "Voglio che tu lo ricordi, Ilanox..."
+    }
+  ]
+}
     },
     {
       "nome": "tristezza",
